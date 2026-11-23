@@ -1,0 +1,5 @@
+server=host
+port=1433
+database=myapp
+user=your_username
+password=your_password
