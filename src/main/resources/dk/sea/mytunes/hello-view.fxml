@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="dk.sea.mytunes.GUI.Controller.MyTunesController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="txtSong" layoutX="51.0" layoutY="48.0" promptText="Search for songs" />
+      <TextField fx:id="txtArtist" layoutX="220.0" layoutY="48.0" promptText="Search for artists" />
+      <Button fx:id="btnAddSong" layoutX="390.0" layoutY="48.0" mnemonicParsing="false" onAction="#btnClickAddSong" text="Add Song" />
+      <Button fx:id="btnDeleteSong" layoutX="469.0" layoutY="48.0" mnemonicParsing="false" onAction="#btnClickDeleteSong" text="Delete Song" />
+      <Button fx:id="btnUpdateSong" layoutX="467.0" layoutY="84.0" mnemonicParsing="false" onAction="#btnClickUpdateSong" text="Update Song" />
+      <TableView fx:id="tblViewSong" layoutX="27.0" layoutY="166.0" prefHeight="308.0" prefWidth="547.0">
+        <columns>
+          <TableColumn fx:id="colTitle" prefWidth="75.0" text="Title" />
+          <TableColumn fx:id="colArtist" prefWidth="75.0" text="Artist" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>
