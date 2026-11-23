@@ -5,14 +5,14 @@ public class Song {
     private int title;
     private String artist;
     private String category;
-    private int lenght;
+    private int length;
 
 
-    public Song(int title, String artist, String category,int lenght){
+    public Song(int title, String artist, String category,int length){
         this.title = title;
         this.artist = artist;
         this.category = category;
-        this.lenght = lenght;
+        this.length = length;
     }
 
     public void setArtist(String artist) {
@@ -31,12 +31,12 @@ public class Song {
         return category;
     }
 
-    public void setLenght(int lenght) {
-        this.lenght = lenght;
+    public void setLength(int length) {
+        this.length = length;
     }
 
-    public int getLenght() {
-        return lenght;
+    public int getLength() {
+        return length;
     }
 
     public void setTitle(int title) {
@@ -45,5 +45,15 @@ public class Song {
 
     public int getTitle() {
         return title;
+    }
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "title=" + title +
+                ", artist='" + artist + '\'' +
+                ", category='" + category + '\'' +
+                ", length=" + length +
+                '}';
     }
 }
