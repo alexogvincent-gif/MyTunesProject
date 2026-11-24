@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ISongDataAccess {
 
-    List<Song> getAllMovies() throws Exception;
+    List<Song> getAllSongs() throws Exception;
 
     Song addSong(Song newSong) throws Exception;
 
