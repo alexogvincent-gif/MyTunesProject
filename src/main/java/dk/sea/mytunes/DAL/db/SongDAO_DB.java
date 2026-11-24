@@ -1,31 +1,26 @@
 package dk.sea.mytunes.DAL.db;
 
 import dk.sea.mytunes.BE.Song;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import dk.sea.mytunes.BE.Song;
 import dk.sea.mytunes.DAL.ISongDataAccess;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import java.io.IOException;
+
 
 public class SongDAO_DB implements ISongDataAccess {
 
-    private final DBConnector dbConnector;
+    private DBConnector dbConnector = new DBConnector();
 
     public SongDAO_DB() throws IOException {
-        this.dbConnector = new DBConnector();
+
     }
 
+
     @Override
-    public List<Song> getAllMovies() throws Exception {
+    public List<Song> getAllSongs() throws Exception {
         List<Song> songs = new ArrayList<>();
 
         try (Connection conn = dbConnector.getConnection()) {
@@ -78,7 +73,7 @@ public class SongDAO_DB implements ISongDataAccess {
 
     @Override
     public void updateSong(Song song) throws Exception {
-        String sql = "UPDATE Movie SET Title = ?, Artist = ?, Category = ?, duration = ? WHERE id = ?";
+        String sql = "UPDATE Song SET Title = ?, Artist = ?, Category = ?, duration = ? WHERE id = ?";
 
         try (Connection conn = dbConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -105,9 +100,5 @@ public class SongDAO_DB implements ISongDataAccess {
             stmt.executeUpdate();
         }
     }
-
-List<Song> song = new ArrayList<>();
-
-
 }
 
