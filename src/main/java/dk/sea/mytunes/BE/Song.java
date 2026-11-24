@@ -25,7 +25,7 @@ public class Song {
         this.artist = artist;
     }
 
-    public String getArtist(){
+    public static String getArtist(){
         return artist;
     }
 
@@ -49,7 +49,7 @@ public class Song {
         this.title = title;
     }
 
-    public String getTitle() { return title; }
+    public static String getTitle() { return title; }
 
     public String getFilePath() { return filePath; }
 
