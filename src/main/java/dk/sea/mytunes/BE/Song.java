@@ -2,13 +2,13 @@ package dk.sea.mytunes.BE;
 
 public class Song {
 
-    private int title;
+    private String title;
     private String artist;
     private String category;
     private int length;
 
 
-    public Song(int title, String artist, String category,int length){
+    public Song(String title, String artist, String category,int length){
         this.title = title;
         this.artist = artist;
         this.category = category;
@@ -39,11 +39,11 @@ public class Song {
         return length;
     }
 
-    public void setTitle(int title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public int getTitle() {
+    public String getTitle() {
         return title;
     }
 

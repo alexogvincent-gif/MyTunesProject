@@ -4,10 +4,12 @@ import dk.sea.mytunes.BE.Song;
 import dk.sea.mytunes.GUI.Model.SongModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,6 +24,9 @@ public class SongController implements Initializable {
     private TableColumn<Song, Integer> colYear;
 
     @FXML
+    private ListView<Song> lstSong;
+
+    @FXML
     private TextField txtSong, txtArtist;
     @FXML
     private SongModel songModel;
@@ -32,11 +37,16 @@ public class SongController implements Initializable {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
 
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    public void btnClickAddSong(ActionEvent actionEvent){
 
     }
 }

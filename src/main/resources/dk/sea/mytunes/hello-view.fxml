@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="txtSong" layoutX="51.0" layoutY="48.0" promptText="Search for songs" />
@@ -14,10 +13,12 @@
       <Button fx:id="btnAddSong" layoutX="390.0" layoutY="48.0" mnemonicParsing="false" onAction="#btnClickAddSong" text="Add Song" />
       <Button fx:id="btnDeleteSong" layoutX="469.0" layoutY="48.0" mnemonicParsing="false" onAction="#btnClickDeleteSong" text="Delete Song" />
       <Button fx:id="btnUpdateSong" layoutX="467.0" layoutY="84.0" mnemonicParsing="false" onAction="#btnClickUpdateSong" text="Update Song" />
-      <TableView fx:id="tblViewSong" layoutX="27.0" layoutY="166.0" prefHeight="308.0" prefWidth="547.0">
+      <TableView fx:id="tblViewSong" editable="true" layoutX="27.0" layoutY="166.0" prefHeight="308.0" prefWidth="547.0">
         <columns>
-          <TableColumn fx:id="colTitle" prefWidth="75.0" text="Title" />
-          <TableColumn fx:id="colArtist" prefWidth="75.0" text="Artist" />
+          <TableColumn fx:id="colTitle" prefWidth="281.5" text="Title" />
+          <TableColumn fx:id="colArtist" prefWidth="92.0" text="Artist" />
+            <TableColumn fx:id="colCategory" prefWidth="85.5" text="Category" />
+            <TableColumn fx:id="colLength" prefWidth="55.0" text="Length" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
