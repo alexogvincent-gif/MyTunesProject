@@ -1,4 +1,4 @@
-package dk.sea.mytunes.GUI.Controller;
+package dk.sea.mytunes.GUI.controller;
 
 import dk.sea.mytunes.BE.Song;
 import dk.sea.mytunes.GUI.Model.SongModel;
@@ -23,10 +23,8 @@ public class MyTunesController implements Initializable {
     @FXML
     private TableColumn<Song, Integer> colYear;
 
-
     @FXML
-    private TextField txtSongName, txtArtist, txtCategory, txtLenght, txtFilepath ;
-
+    private TextField txtSongTitle, txtArtist;
     @FXML
     private SongModel songModel;
 
@@ -52,7 +50,21 @@ public class MyTunesController implements Initializable {
     }
 
     public void btnClickAddSong(ActionEvent actionEvent) {
-    if (!txtSongName = null )
+        if (!txtSongTitle.getText().isEmpty() && !txtArtist.getText().isEmpty()) {
+
+            String songTitle = txtSongTitle.getText();
+            String artist =txtArtist.getText();
+
+            Song newSong = new Song(-1, songTitle, artist, "", 0, "");
+
+            try {
+                songModel.addSong(newSong);
+                txtSongTitle.clear();
+                txtArtist.clear();
+            } catch (Exception e) {
+                displayError(e);
+            }
+        }
     }
 
     public void btnClickDeleteSong(ActionEvent actionEvent) {

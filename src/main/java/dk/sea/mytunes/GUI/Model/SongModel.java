@@ -9,7 +9,9 @@ import javafx.collections.transformation.FilteredList;
 public class SongModel {
 
     private FilteredList<Song> filteredList;
+
     private ObservableList<Song> songsToBeViewed;
+
     private SongManager songManager;
 
 
@@ -26,10 +28,11 @@ public class SongModel {
     }
 
     public void addSong(Song newSong) throws Exception {
-        Song addedSong = SongManager.addSong(newSong);
+        Song addedSong = songManager.addSong(newSong);
         songsToBeViewed.add(addedSong);
     }
 }
+
 
 
 
