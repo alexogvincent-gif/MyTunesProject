@@ -12,9 +12,9 @@ public class Main extends Application{
 
 
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/hello-view.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/MyTunes.fxml")));
         primaryStage.setTitle("MyTunes");
-        primaryStage.setScene(new Scene(root, 600, 475));
+        primaryStage.setScene(new Scene(root, 600, 583));
         primaryStage.show();
     }
     public static void main(String[] args) {
