@@ -23,8 +23,10 @@ public class MyTunesController implements Initializable {
     @FXML
     private TableColumn<Song, Integer> colYear;
 
+
     @FXML
-    private TextField txtSong, txtArtist;
+    private TextField txtSongName, txtArtist, txtCategory, txtLenght, txtFilepath ;
+
     @FXML
     private SongModel songModel;
 
@@ -50,7 +52,7 @@ public class MyTunesController implements Initializable {
     }
 
     public void btnClickAddSong(ActionEvent actionEvent) {
-
+    if (!txtSongName = null )
     }
 
     public void btnClickDeleteSong(ActionEvent actionEvent) {

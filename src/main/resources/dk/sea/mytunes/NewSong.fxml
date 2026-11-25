@@ -29,11 +29,11 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField promptText="Name" />
-            <TextField promptText="Artist" GridPane.rowIndex="1" />
-            <TextField promptText="Category" GridPane.rowIndex="2" />
-            <TextField promptText="Length" GridPane.rowIndex="3" />
-            <TextField promptText="Filepath" GridPane.rowIndex="4" />
+            <TextField fx:id="txtSongName" promptText="Song Name" />
+            <TextField fx:id="txtArtist" promptText="Artist" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCategory" promptText="Category" GridPane.rowIndex="2" />
+            <TextField fx:id="txtLenght" promptText="Length" GridPane.rowIndex="3" />
+            <TextField fx:id="txtFilepath" promptText="Filepath" GridPane.rowIndex="4" />
             <Button fx:id="btnFindFile" mnemonicParsing="false" onAction="#btnClickFindFile" prefHeight="31.0" prefWidth="112.0" text="Find file" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="50.0" />
