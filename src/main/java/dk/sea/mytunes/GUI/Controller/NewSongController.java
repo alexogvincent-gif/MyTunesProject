@@ -1,4 +1,4 @@
-package dk.sea.mytunes.GUI.Controller;
+package dk.sea.mytunes.GUI.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
