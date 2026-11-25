@@ -21,11 +21,11 @@ public class SongSearcher {
     }
 
     private boolean compareToSongArtist(String query, Song song) {
-        return Song.getArtist().toLowerCase().contains(query.toLowerCase());
+        return song.getArtist().toLowerCase().contains(query.toLowerCase());
     }
 
     private boolean compareToSongTitle(String query, Song song) {
-        return Song.getTitle().toLowerCase().contains(query.toLowerCase());
+        return song.getTitle().toLowerCase().contains(query.toLowerCase());
     }
 
     private boolean compareToSongCategory(String query, Song song){

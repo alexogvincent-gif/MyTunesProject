@@ -1,5 +1,5 @@
-server=host
-port=1433
-database=myapp
-user=your_username
-password=your_password
+Server= 10.176.111.34
+Port= 1433
+Database= MyTunesDB_RSA
+User= CS2026a_e_19
+Password= CS2026aE19#26

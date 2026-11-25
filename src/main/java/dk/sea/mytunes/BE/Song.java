@@ -3,8 +3,8 @@ package dk.sea.mytunes.BE;
 public class Song {
 
     private int id;
-    private String title;
-    private String artist;
+    private static String title;
+    private static String artist;
     private String category;
     private int duration;
     private String filePath;
@@ -49,7 +49,7 @@ public class Song {
         this.title = title;
     }
 
-    public static String getTitle() { return title; }
+    public String getTitle() { return title; }
 
     public String getFilePath() { return filePath; }
 
