@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.sea.mytunes.GUI.Controller.MyTunesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.sea.mytunes.GUI.Controller.MyTunesController">
    <children>
       <TextField fx:id="txtSong" layoutX="51.0" layoutY="68.0" promptText="Search for songs" />
       <TextField fx:id="txtArtist" layoutX="51.0" layoutY="111.0" promptText="Search for artists" />

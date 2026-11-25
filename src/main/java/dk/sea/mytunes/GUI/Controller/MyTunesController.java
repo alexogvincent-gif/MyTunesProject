@@ -57,4 +57,10 @@ public class MyTunesController implements Initializable {
 
     public void btnClickUpdateSong(ActionEvent actionEvent) {
     }
+
+    public void bntClickAddsSongPlaylist(ActionEvent actionEvent) {
+    }
+
+    public void bntClickRemoveSongPlaylist(ActionEvent actionEvent) {
+    }
 }
