@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SongController implements Initializable {
+public class MyTunesController implements Initializable {
     @FXML
     private TableView<Song> tblViewSong;
 
@@ -28,7 +28,7 @@ public class SongController implements Initializable {
     @FXML
     private SongModel songModel;
 
-    public SongController(){
+    public MyTunesController(){
         try {
         songModel = new SongModel();
         } catch (Exception e) {
@@ -47,5 +47,14 @@ public class SongController implements Initializable {
         alert.setTitle("Error");
         alert.setHeaderText(t.getMessage());
         alert.showAndWait();
+    }
+
+    public void btnClickAddSong(ActionEvent actionEvent) {
+    }
+
+    public void btnClickDeleteSong(ActionEvent actionEvent) {
+    }
+
+    public void btnClickUpdateSong(ActionEvent actionEvent) {
     }
 }
