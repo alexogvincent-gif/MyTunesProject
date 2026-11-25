@@ -1,4 +1,4 @@
-package dk.sea.mytunes.GUI.controller;
+package dk.sea.mytunes.GUI.Controller;
 
 import dk.sea.mytunes.BE.Song;
 import dk.sea.mytunes.GUI.Model.SongModel;
