@@ -50,6 +50,7 @@ public class MyTunesController implements Initializable {
     }
 
     public void btnClickAddSong(ActionEvent actionEvent) {
+
     }
 
     public void btnClickDeleteSong(ActionEvent actionEvent) {
@@ -62,5 +63,6 @@ public class MyTunesController implements Initializable {
     }
 
     public void bntClickRemoveSongPlaylist(ActionEvent actionEvent) {
+
     }
 }

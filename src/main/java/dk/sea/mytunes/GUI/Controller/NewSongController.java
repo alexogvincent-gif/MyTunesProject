@@ -14,5 +14,6 @@ public class NewSongController {
     }
 
     public void btnClickDone(ActionEvent actionEvent) {
+
     }
 }
