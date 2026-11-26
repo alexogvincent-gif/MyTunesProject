@@ -90,7 +90,16 @@ public class  MyTunesController implements Initializable {
     }
 
     public void btnClickDeleteSong(ActionEvent actionEvent) {
+        Song selectedSong = tblViewSong.getSelectionModel().getSelectedItem();
+        if (selectedSong == null) return;
+
+        try {
+            songModel.deleteSong(selectedSong);
+        } catch (Exception e) {
+            displayError(e);
+        }
     }
+
 
     public void btnClickUpdateSong(ActionEvent actionEvent) {
     }

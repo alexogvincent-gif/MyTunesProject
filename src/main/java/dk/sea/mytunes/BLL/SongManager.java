@@ -33,8 +33,9 @@ public class SongManager {
         return songDAO.addSong(newSong);
     }
 
-    public void deleteSong(Song songToBeDeleted) throws Exception {
-        songDAO.deleteSong(songToBeDeleted);
+    public void deleteSong(Song song) throws Exception {
+        songDAO.deleteSong(song);
+
     }
 
     public void updateSong(Song songToBeUpdated) throws Exception {
