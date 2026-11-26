@@ -7,49 +7,40 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.function.Consumer;
 
 
 public class NewSongController {
-    @FXML
-    private TextField txtSongTitle, txtArtist, txtFilepath;
+
 
     private SongModel songModel;
+
+    @FXML
+    public TextField txtSongName, txtArtist, txtCategory, txtLength, txtFilepath;
 
     public void setSongModel(SongModel songModel) {
         this.songModel = songModel;
     }
 
-    public void btnClickFindFile(ActionEvent actionEvent) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choose a song");
-        fileChooser.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter("Audio files", "*.mp3", "*.wav"));
-
-        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        File file = fileChooser.showOpenDialog(stage);
-
-        if (file != null) {
-            txtFilepath.setText(file.getAbsolutePath());
-
-            if (txtSongTitle.getText().isEmpty()) {
-                String name = file.getName();
-                txtSongTitle.setText(name.substring(0, name.lastIndexOf('.')));
-            }
-        }
-    }
 
     @FXML
     public void btnClickDone(ActionEvent actionEvent) {
+
         Button source = (Button) actionEvent.getSource();
+
         Stage stage = (Stage) source.getScene().getWindow();
+
         stage.close();
-        if (!txtSongTitle.getText().isEmpty() && !txtArtist.getText().isEmpty()) {
+
+        if (!txtSongName.getText().isEmpty() && !txtArtist.getText().isEmpty() && !txtCategory.getText().isEmpty() && !txtLength.getText().isEmpty() && !txtFilepath.getText().isEmpty()) {
             try {
-                Song newSong = new Song(-1, txtSongTitle.getText(), txtArtist.getText(), "", 0, "");
+                Song newSong = new Song(-1, txtSongName.getText(), txtArtist.getText(), txtCategory.getText(), Integer.parseInt(txtLength.getText()), txtFilepath.getText());
                 songModel.addSong(newSong);
 
             } catch (Exception e) {
@@ -58,5 +49,35 @@ public class NewSongController {
                 alert.showAndWait();
             }
         }
+    }
+
+    @FXML
+    public void btnClickFindFile(ActionEvent actionEvent) {
+
+        Stage mainStage = new Stage();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Find file");
+        fileChooser.getExtensionFilters().addAll();
+        {
+            new FileChooser.ExtensionFilter("Audio files", "*.mp3");
+            File selectedFile = fileChooser.showOpenDialog(mainStage);
+            if (selectedFile != null) {
+                txtFilepath.setText(selectedFile.getAbsolutePath());
+                getDurationInSeconds(selectedFile, seconds ->{txtLength.setText(seconds + "");});
+            }
+
+
+        }
+    }
+
+    private void getDurationInSeconds(File file, Consumer<Integer> onDurationReady) {
+        Media media = new Media(file.toURI().toString());
+        MediaPlayer tempPlayer = new MediaPlayer(media);
+
+        tempPlayer.setOnReady(() -> {
+            int seconds = (int) Math.round(media.getDuration()oSeconds());
+            onDurationReady.accept(seconds);
+            tempPlayer.dispose();
+        });
     }
 }

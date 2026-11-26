@@ -28,7 +28,7 @@
             <TextField fx:id="txtSongName" promptText="Song Name" />
             <TextField fx:id="txtArtist" promptText="Artist" GridPane.rowIndex="1" />
             <TextField fx:id="txtCategory" promptText="Category" GridPane.rowIndex="2" />
-            <TextField fx:id="txtDuration" promptText="Duration" GridPane.rowIndex="3" />
+            <TextField fx:id="txtLength" promptText="Length" GridPane.rowIndex="3" />
             <TextField fx:id="txtFilepath" promptText="Filepath" GridPane.rowIndex="4" />
             <Button fx:id="btnFindFile" mnemonicParsing="false" onAction="#btnClickFindFile" prefHeight="31.0" prefWidth="112.0" text="Find file" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
