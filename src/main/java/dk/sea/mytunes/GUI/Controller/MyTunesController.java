@@ -2,18 +2,28 @@ package dk.sea.mytunes.GUI.Controller;
 
 import dk.sea.mytunes.BE.Song;
 import dk.sea.mytunes.GUI.Model.SongModel;
+import dk.sea.mytunes.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Time;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class MyTunesController implements Initializable {
+public class  MyTunesController implements Initializable {
     @FXML
     private TableView<Song> tblViewSong;
 
@@ -55,7 +65,7 @@ public class MyTunesController implements Initializable {
             String songTitle = txtSongTitle.getText();
             String artist =txtArtist.getText();
 
-            Song newSong = new Song(-1, songTitle, artist, "", 0, "");
+            Song newSong = new Song(-1, songTitle, artist, "", Time.valueOf(String.valueOf(Integer.parseInt("0"))), "");
 
             try {
                 songModel.addSong(newSong);
@@ -73,10 +83,25 @@ public class MyTunesController implements Initializable {
     public void btnClickUpdateSong(ActionEvent actionEvent) {
     }
 
-    public void bntClickAddsSongPlaylist(ActionEvent actionEvent) {
-    }
+//    public void bntClickAddsSongPlaylist(ActionEvent primaryStage) throws IOException {
+//
+//        Parent newSong = FXMLLoader.load((Objects.requireNonNull(Main.class.getResource("/dk/sea/mytunes/MyTunes.fxml"))));
+//        primaryStage.setTitle("MyTunes");
+//        primaryStage.setScene(new Scene(newSong, 995, 724));
+//        primaryStage.show();
+//    }
 
     public void bntClickRemoveSongPlaylist(ActionEvent actionEvent) {
 
+    }
+    @FXML
+
+    public void btnClickPlay(ActionEvent actionEvent) {
+        String file = String.valueOf(new File("/MyTunes/audio/song1.mp3"));
+        MediaPlayer player = new MediaPlayer(new Media(file));
+        player.play();
+    }
+
+    public void btnClickPause(ActionEvent actionEvent) {
     }
 }

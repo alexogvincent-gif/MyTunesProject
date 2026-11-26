@@ -36,7 +36,7 @@ public class SongDAO_DB implements ISongDataAccess {
                         rs.getString("title"),
                         rs.getString("artist"),
                         rs.getString("category"),
-                        rs.getInt("duration"),
+                        rs.getTime("duration"),
                         rs.getString("filePath")
                 ));
             }
@@ -54,7 +54,7 @@ public class SongDAO_DB implements ISongDataAccess {
             stmt.setString(1, song.getTitle());
             stmt.setString(2, song.getArtist());
             stmt.setString(3, song.getCategory());
-            stmt.setInt(4, song.getDuration());
+            stmt.setTime(4, song.getDuration());
             stmt.setString(5, song.getFilePath());
 
             stmt.executeUpdate();
@@ -81,7 +81,7 @@ public class SongDAO_DB implements ISongDataAccess {
             stmt.setString(1, song.getTitle());
             stmt.setString(2, song.getArtist());
             stmt.setString(3, song.getCategory());
-            stmt.setInt(4, song.getDuration());
+            stmt.setTime(4, song.getDuration());
             stmt.setInt(5, song.getId());
 
             stmt.executeUpdate();
