@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 
+import java.util.List;
+
 public class SongModel {
 
     private FilteredList<Song> filteredList;
@@ -20,6 +22,10 @@ public class SongModel {
         songsToBeViewed = FXCollections.observableArrayList();
         songsToBeViewed.addAll(songManager.getAllSongs());
         filteredList = new FilteredList<>(songsToBeViewed);
+    }
+
+    public ObservableList<Song> getSongsToBeViewed(){
+        return songsToBeViewed;
     }
 
 
