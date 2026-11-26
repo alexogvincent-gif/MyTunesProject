@@ -8,7 +8,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.sql.Time;
 
 public class NewSongController {
     @FXML
@@ -27,7 +26,7 @@ public class NewSongController {
     public void btnClickDone(ActionEvent actionEvent) {
         if (!txtSongTitle.getText().isEmpty() && !txtArtist.getText().isEmpty()) {
             try {
-                Song newSong = new Song(-1, txtSongTitle.getText(), txtArtist.getText(), "", Time.valueOf("00:00:00"), "");
+                Song newSong = new Song(-1, txtSongTitle.getText(), txtArtist.getText(), "", 0, "");
                 songModel.addSong(newSong);
 
             } catch (Exception e) {

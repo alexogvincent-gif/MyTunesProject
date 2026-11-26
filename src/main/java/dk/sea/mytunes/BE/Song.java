@@ -1,18 +1,16 @@
 package dk.sea.mytunes.BE;
 
-import java.sql.Time;
-
 public class Song {
 
     private int id;
     private static String title;
     private static String artist;
     private String category;
-    private Time duration;
+    private int duration;
     private String filePath;
 
 
-    public Song(int id, String title, String artist, String category, Time duration, String filePath) {
+    public Song(int id, String title, String artist, String category, int duration, String filePath) {
         this.id = id;
         this.title = title;
         this.artist = artist;
@@ -39,11 +37,11 @@ public class Song {
         return category;
     }
 
-    public void setDuration(Time duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
-    public Time getDuration() {
+    public int getDuration() {
         return duration;
     }
 
