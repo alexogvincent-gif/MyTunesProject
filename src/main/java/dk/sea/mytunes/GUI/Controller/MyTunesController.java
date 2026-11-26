@@ -2,13 +2,9 @@ package dk.sea.mytunes.GUI.Controller;
 
 import dk.sea.mytunes.BE.Song;
 import dk.sea.mytunes.GUI.Model.SongModel;
-import dk.sea.mytunes.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -16,11 +12,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-import java.io.File;
-import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Time;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class  MyTunesController implements Initializable {
@@ -97,11 +91,20 @@ public class  MyTunesController implements Initializable {
     @FXML
 
     public void btnClickPlay(ActionEvent actionEvent) {
-        String file = String.valueOf(new File("/MyTunes/audio/song1.mp3"));
-        MediaPlayer player = new MediaPlayer(new Media(file));
-        player.play();
+        Media media = null;
+        try {
+            media = new Media(getClass().getResource("/audio/song1.mp3").toURI().toString());
+            MediaPlayer player = new MediaPlayer(media);
+            player.play();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+
+        }
     }
 
     public void btnClickPause(ActionEvent actionEvent) {
+    }
+
+    public void bntClickAddsSongPlaylist(ActionEvent actionEvent) {
     }
 }
