@@ -75,7 +75,7 @@ public class NewSongController {
         MediaPlayer tempPlayer = new MediaPlayer(media);
 
         tempPlayer.setOnReady(() -> {
-            int seconds = (int) Math.round(media.getDuration()oSeconds());
+            int seconds = (int) Math.round(media.getDuration().toSeconds());
             onDurationReady.accept(seconds);
             tempPlayer.dispose();
         });
