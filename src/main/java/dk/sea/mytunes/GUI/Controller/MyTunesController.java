@@ -2,7 +2,6 @@ package dk.sea.mytunes.GUI.Controller;
 
 import dk.sea.mytunes.BE.Song;
 import dk.sea.mytunes.GUI.Model.SongModel;
-import dk.sea.mytunes.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,15 +11,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Time;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class  MyTunesController implements Initializable {
@@ -33,8 +31,6 @@ public class  MyTunesController implements Initializable {
     @FXML
     private TableColumn<Song, Integer> colYear;
 
-    @FXML
-    private TextField txtSongTitle, txtArtist;
     @FXML
     private SongModel songModel;
 
@@ -60,21 +56,21 @@ public class  MyTunesController implements Initializable {
     }
 
     public void btnClickAddSong(ActionEvent actionEvent) {
-        if (!txtSongTitle.getText().isEmpty() && !txtArtist.getText().isEmpty()) {
+       try {
+           FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/dk/sea/mytunes/newSong.fxml"));
+           Parent root = fxmlLoader.load();
 
-            String songTitle = txtSongTitle.getText();
-            String artist =txtArtist.getText();
+           NewSongController controller = fxmlLoader.getController();
+           controller.setSongModel(songModel);
 
-            Song newSong = new Song(-1, songTitle, artist, "", Time.valueOf(String.valueOf(Integer.parseInt("0"))), "");
-
-            try {
-                songModel.addSong(newSong);
-                txtSongTitle.clear();
-                txtArtist.clear();
-            } catch (Exception e) {
-                displayError(e);
-            }
-        }
+           Stage stage = new Stage();
+           stage.setTitle("New Song");
+           stage.setScene(new Scene(root));
+           stage.initModality(Modality.APPLICATION_MODAL);
+           stage.show();
+       } catch (Exception e) {
+           displayError(e);
+       }
     }
 
     public void btnClickDeleteSong(ActionEvent actionEvent) {
@@ -83,13 +79,8 @@ public class  MyTunesController implements Initializable {
     public void btnClickUpdateSong(ActionEvent actionEvent) {
     }
 
-//    public void bntClickAddsSongPlaylist(ActionEvent primaryStage) throws IOException {
-//
-//        Parent newSong = FXMLLoader.load((Objects.requireNonNull(Main.class.getResource("/dk/sea/mytunes/MyTunes.fxml"))));
-//        primaryStage.setTitle("MyTunes");
-//        primaryStage.setScene(new Scene(newSong, 995, 724));
-//        primaryStage.show();
-//    }
+    public void bntClickAddsSongPlaylist(ActionEvent primaryStage) throws IOException {
+    }
 
     public void bntClickRemoveSongPlaylist(ActionEvent actionEvent) {
 
