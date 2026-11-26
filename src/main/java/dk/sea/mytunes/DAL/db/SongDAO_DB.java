@@ -7,6 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.sql.Connection;
 import java.io.IOException;
 
 
@@ -39,7 +40,8 @@ public class SongDAO_DB implements ISongDataAccess {
                 int duration = rs.getInt("Duration");
                 String filePath = rs.getString("filePath");
 
-
+                Song song = new Song(id, title, artist, category, duration, filePath);  // 2. lav sangen
+                songs.add(song);
             }
         }
         return songs;

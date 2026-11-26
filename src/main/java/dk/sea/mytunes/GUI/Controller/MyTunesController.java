@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
@@ -29,12 +30,20 @@ public class  MyTunesController implements Initializable {
     private TableColumn<Song, String> colTitle;
 
     @FXML
-    private TableColumn<Song, Integer> colYear;
+    private TableColumn<Song, String> colArtist;
+
+    @FXML
+    private TableColumn<Song, String> colCategory;
+
+    @FXML
+    private TableColumn<Song, Integer> colDuration;
 
     @FXML
     private TextField txtSongTitle, txtArtist;
     @FXML
     private SongModel songModel;
+
+
 
     public MyTunesController(){
         try {
@@ -47,7 +56,12 @@ public class  MyTunesController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        colArtist.setCellValueFactory(new PropertyValueFactory<>("artist"));
+        colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
 
+        tblViewSong.setItems(songModel.getObservableSongs());
     }
 
     private void displayError(Throwable t) {
