@@ -37,10 +37,10 @@ public class SongDAO_DB implements ISongDataAccess {
                 String title = rs.getString("Title");
                 String artist = rs.getString("Artist");
                 String category = rs.getString("Category");
-                int duration = rs.getInt("Duration");
+                int length = rs.getInt("Length");
                 String filePath = rs.getString("filePath");
 
-                Song song = new Song(id, title, artist, category, duration, filePath);  // 2. lav sangen
+                Song song = new Song(id, title, artist, category, length, filePath);  // 2. lav sangen
                 songs.add(song);
             }
         }
@@ -88,7 +88,9 @@ public class SongDAO_DB implements ISongDataAccess {
             stmt.setString(5, song.getFilePath());
             stmt.setInt(6, song.getId());
 
-            stmt.executeUpdate();
+            int rows = stmt.executeUpdate();
+
+            System.out.println("3: rows updated: " + rows);
         }
     }
 

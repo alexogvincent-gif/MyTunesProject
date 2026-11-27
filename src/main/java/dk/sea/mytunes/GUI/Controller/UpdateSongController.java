@@ -33,10 +33,16 @@ public class UpdateSongController {
     @FXML
     private void btnClickUpdateFile(ActionEvent actionEvent) throws Exception {
 
-        Song updated = new Song(song.getId(), txtSongTitle.getText(), txtArtist.getText(), txtCategory.getText(), Integer.parseInt(txtLength.getText()), txtFilepath.getText());
+        System.out.println("1: updated clicked, id = " +  song.getId());
 
-        songModel.updateSong(updated);
-        ((Stage) txtSongTitle.getScene().getWindow()).close();
+        try {
+            Song updated = new Song(song.getId(), txtSongTitle.getText(), txtArtist.getText(), txtCategory.getText(), Integer.parseInt(txtLength.getText()), txtFilepath.getText());
+
+            songModel.updateSong(updated);
+            ((Stage) txtSongTitle.getScene().getWindow()).close();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK).showAndWait();
+        }
     }
 
     @FXML

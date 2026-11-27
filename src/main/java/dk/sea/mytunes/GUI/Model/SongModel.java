@@ -44,6 +44,7 @@ public class SongModel {
     }
 
     public void updateSong(Song songTobeUpdated) throws Exception {
+        System.out.println("2: model, title = " +  songTobeUpdated.getTitle());
         songManager.updateSong(songTobeUpdated);
 
         for (int i = 0; i < songsToBeViewed.size(); i++) {
