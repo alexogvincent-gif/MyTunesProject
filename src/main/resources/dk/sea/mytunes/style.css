@@ -1,0 +1,272 @@
+/* ====== Grundfarver ====== */
+.root {
+    -fx-base: #1c1c1e;
+    -fx-background: #1c1c1e;
+    -fx-background-color: #1c1c1e;
+    -fx-font-family: "Segoe UI", "SF Pro Display", sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: #e5e5ea;
+
+    /* fjerner de skarpe blå fokusringe */
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-accent: #e8485c;
+}
+
+.label {
+    -fx-text-fill: #e5e5ea;
+}
+
+/* Overskrifter (giv elementet style class "title" i Scene Builder) */
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f2f2f7;
+}
+
+/* ====== Tekstfelter (søgefelter) ====== */
+.text-field {
+    -fx-background-color: #2c2c2e;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-text-fill: #f2f2f7;
+    -fx-prompt-text-fill: #8e8e93;
+    -fx-padding: 7 12 7 12;
+    -fx-highlight-fill: #e8485c;
+}
+
+.text-field:focused {
+    -fx-background-color: #3a3a3c;
+    -fx-border-color: rgba(232, 72, 92, 0.6);
+    -fx-border-width: 1.5;
+}
+
+/* ====== Knapper ====== */
+.button {
+    -fx-background-color: #2c2c2e;
+    -fx-background-radius: 12;
+    -fx-text-fill: #ff6b7d;
+    -fx-font-weight: bold;
+    -fx-padding: 7 16 7 16;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3c;
+}
+
+.button:pressed {
+    -fx-background-color: #48484a;
+}
+
+/* Fremhævet knap (Style Class "primary" i Scene Builder, fx Add/Update/Done) */
+.button.primary {
+    -fx-background-color: #e8485c;
+    -fx-text-fill: white;
+}
+
+.button.primary:hover {
+    -fx-background-color: #f05a6d;
+}
+
+.button.primary:pressed {
+    -fx-background-color: #cc3b4d;
+}
+
+/* ====== Tabeller og lister ====== */
+.table-view, .list-view {
+    -fx-background-color: #232325;
+    -fx-background-radius: 14;
+    -fx-border-color: #2c2c2e;
+    -fx-border-radius: 14;
+    -fx-control-inner-background: #232325;
+    -fx-control-inner-background-alt: #232325;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 4;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+    -fx-background-radius: 14 14 0 0;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #38383a transparent;
+    -fx-size: 32px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #8e8e93;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+}
+
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-cell-size: 34px;
+    -fx-background-radius: 10;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: rgba(255, 255, 255, 0.03);
+}
+
+.table-row-cell:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: rgba(232, 72, 92, 0.85);
+}
+
+.table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+.table-cell {
+    -fx-text-fill: #e5e5ea;
+    -fx-alignment: center-left;
+    -fx-padding: 0 8 0 8;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e5e5ea;
+    -fx-background-radius: 10;
+    -fx-padding: 8 12 8 12;
+}
+
+.list-cell:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+}
+
+.list-cell:filled:selected {
+    -fx-background-color: rgba(232, 72, 92, 0.85);
+    -fx-text-fill: white;
+}
+
+.placeholder .label {
+    -fx-text-fill: #636366;
+}
+
+/* ====== Scrollbars (tynde og diskrete) ====== */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #48484a;
+    -fx-background-radius: 10;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #636366;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-padding: 0;
+    -fx-pref-height: 0;
+    -fx-pref-width: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+.scroll-bar:vertical { -fx-pref-width: 8; }
+.scroll-bar:horizontal { -fx-pref-height: 8; }
+
+/* ====== Afspilning: progress og slider ====== */
+.progress-bar .track {
+    -fx-background-color: #3a3a3c;
+    -fx-background-radius: 10;
+    -fx-background-insets: 0;
+}
+
+.progress-bar .bar {
+    -fx-background-color: #e8485c;
+    -fx-background-radius: 10;
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+}
+
+.slider .track {
+    -fx-background-color: #3a3a3c;
+    -fx-background-radius: 10;
+}
+
+.slider .thumb {
+    -fx-background-color: #f2f2f7;
+    -fx-background-radius: 10;
+}
+
+/* ====== Fejlbokse og dialoger ====== */
+.dialog-pane {
+    -fx-background-color: #2c2c2e;
+    -fx-background-radius: 14;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: #f2f2f7;
+}
+
+.dialog-pane > .button-bar > .container {
+    -fx-background-color: #2c2c2e;
+}
+
+/* ====== Afspillerbar ====== */
+.player-bar {
+    -fx-background-color: linear-gradient(to right, #262628, #323236 50%, #262628);
+    -fx-background-radius: 40;
+    -fx-border-radius: 40;
+    -fx-border-color: rgba(255, 255, 255, 0.10);
+    -fx-padding: 8 30 8 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 20, 0, 0, 6);
+}
+
+/* Ikon-knapper: knappen får selv ikonets form */
+.icon-btn {
+    -fx-background-color: #d1d1d6;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-scale-shape: true;
+    -fx-cursor: hand;
+}
+.icon-btn:hover   { -fx-background-color: #ffffff; }
+.icon-btn:pressed { -fx-background-color: #8e8e93; }
+
+.play-btn {
+    -fx-shape: "M0 0 L18 10 L0 20 Z";
+    -fx-min-width: 18;  -fx-pref-width: 18;  -fx-max-width: 18;
+    -fx-min-height: 20; -fx-pref-height: 20; -fx-max-height: 20;
+}
+.pause-btn {
+    -fx-shape: "M0 0 H6 V20 H0 Z M12 0 H18 V20 H12 Z";
+    -fx-min-width: 18;  -fx-pref-width: 18;  -fx-max-width: 18;
+    -fx-min-height: 20; -fx-pref-height: 20; -fx-max-height: 20;
+}
+
+/* Tynd progress bar i baren */
+.player-bar .progress-bar { -fx-pref-height: 4; }
+.player-bar .progress-bar .track {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-radius: 10;
+    -fx-background-insets: 0;
+}
+.player-bar .progress-bar .bar {
+    -fx-background-color: #d1d1d6;
+    -fx-background-radius: 10;
+    -fx-background-insets: 0;
+    -fx-padding: 2;
+}

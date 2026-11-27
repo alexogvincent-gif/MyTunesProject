@@ -8,8 +8,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.sea.mytunes.GUI.Controller.MyTunesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.sea.mytunes.GUI.Controller.MyTunesController" stylesheets="@style.css">
    <children>
       <TextField fx:id="txtSong" layoutX="51.0" layoutY="68.0" promptText="Search for songs" />
       <TextField fx:id="txtArtist" layoutX="51.0" layoutY="111.0" promptText="Search for artists" />
@@ -58,8 +59,13 @@
       </Label>
       <Button fx:id="bntAddSongPlaylist" layoutX="810.0" layoutY="84.0" mnemonicParsing="false" onAction="#bntClickAddsSongPlaylist" text="Add Song to Playlist" />
       <Button fx:id="bntRemoveSongPlaylist" layoutX="810.0" layoutY="124.0" mnemonicParsing="false" onAction="#bntClickRemoveSongPlaylist" text="Remove Song to Playlist" />
-      <Button fx:id="btnPause" layoutX="394.0" layoutY="669.0" mnemonicParsing="false" onAction="#btnClickPause" text="Pause" />
-      <ProgressBar fx:id="progBar" layoutX="487.0" layoutY="672.0" prefWidth="200.0" progress="0.0" />
-      <Button fx:id="btnPlay" layoutX="336.0" layoutY="669.0" mnemonicParsing="false" onAction="#btnClickPlay" text="Play" />
+      <HBox styleClass="player-bar" alignment="CENTER" spacing="22"
+            layoutX="250.0" layoutY="660.0" prefWidth="500.0" prefHeight="48.0">
+         <children>
+            <Button fx:id="btnPlay" styleClass="icon-btn, play-btn" mnemonicParsing="false" onAction="#btnClickPlay" />
+            <Button fx:id="btnPause" styleClass="icon-btn, pause-btn" mnemonicParsing="false" onAction="#btnClickPause" />
+            <ProgressBar fx:id="progBar" progress="0.0" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

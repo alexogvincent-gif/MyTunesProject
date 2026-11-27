@@ -1,5 +1,6 @@
 package dk.sea.mytunes;
 
+import dk.sea.mytunes.GUI.Styler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +15,7 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load((Objects.requireNonNull(Main.class.getResource("/dk/sea/mytunes/MyTunes.fxml"))));
         primaryStage.setTitle("MyTunes");
-        primaryStage.setScene(new Scene(root, 995, 724));
+        primaryStage.setScene(Styler.createScene(root, 995, 724));
         primaryStage.show();
     }
     public static void main(String[] args) {

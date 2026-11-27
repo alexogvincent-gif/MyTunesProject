@@ -2,6 +2,7 @@ package dk.sea.mytunes.GUI.Controller;
 
 import dk.sea.mytunes.BE.Song;
 import dk.sea.mytunes.GUI.Model.SongModel;
+import dk.sea.mytunes.GUI.Styler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -118,7 +119,7 @@ public class  MyTunesController implements Initializable {
 
             Stage stage = new Stage();
             stage.setTitle("Update Song");
-            stage.setScene(new Scene(root));
+            stage.setScene(Styler.createScene(root));
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
 
