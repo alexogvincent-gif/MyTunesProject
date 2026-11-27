@@ -15,7 +15,7 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load((Objects.requireNonNull(Main.class.getResource("/dk/sea/mytunes/MyTunes.fxml"))));
         primaryStage.setTitle("MyTunes");
-        primaryStage.setScene(Styler.createScene(root, 995, 724));
+        primaryStage.setScene(Styler.createScene(root, 1075, 724));
         primaryStage.show();
     }
     public static void main(String[] args) {
