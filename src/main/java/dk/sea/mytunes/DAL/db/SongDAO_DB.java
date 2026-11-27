@@ -49,7 +49,7 @@ public class SongDAO_DB implements ISongDataAccess {
 
     @Override
     public Song addSong(Song song) throws Exception {
-        String sql = "INSERT INTO Song (title, artist, category, duration, filePath) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO Song (title, artist, category, length, filePath) VALUES (?,?,?,?,?)";
 
         try (Connection conn = dbConnector.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -57,7 +57,7 @@ public class SongDAO_DB implements ISongDataAccess {
             stmt.setString(1, song.getTitle());
             stmt.setString(2, song.getArtist());
             stmt.setString(3, song.getCategory());
-            stmt.setInt(4, song.getDuration());
+            stmt.setInt(4, song.getLength());
             stmt.setString(5, song.getFilePath());
 
             stmt.executeUpdate();
@@ -68,7 +68,7 @@ public class SongDAO_DB implements ISongDataAccess {
                 id = rs.getInt(1);
             }
 
-            Song addedSong = new Song(id, song.getTitle(), song.getArtist(), song.getCategory(), song.getDuration(), song.getFilePath());
+            Song addedSong = new Song(id, song.getTitle(), song.getArtist(), song.getCategory(), song.getLength(), song.getFilePath());
 
             return addedSong;
         }
@@ -76,7 +76,7 @@ public class SongDAO_DB implements ISongDataAccess {
 
     @Override
     public void updateSong(Song song) throws Exception {
-        String sql = "UPDATE Song SET Title = ?, Artist = ?, Category = ?, duration = ? WHERE id = ?";
+        String sql = "UPDATE Song SET Title = ?, Artist = ?, Category = ?, length = ?, Filepath = ? WHERE id = ?";
 
         try (Connection conn = dbConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -84,8 +84,9 @@ public class SongDAO_DB implements ISongDataAccess {
             stmt.setString(1, song.getTitle());
             stmt.setString(2, song.getArtist());
             stmt.setString(3, song.getCategory());
-            stmt.setInt(4, song.getDuration());
-            stmt.setInt(5, song.getId());
+            stmt.setInt(4, song.getLength());
+            stmt.setString(5, song.getFilePath());
+            stmt.setInt(6, song.getId());
 
             stmt.executeUpdate();
         }

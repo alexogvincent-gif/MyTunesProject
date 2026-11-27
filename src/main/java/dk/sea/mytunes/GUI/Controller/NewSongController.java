@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -18,11 +19,13 @@ import java.util.function.Consumer;
 
 public class NewSongController {
 
-
     private SongModel songModel;
 
     @FXML
-    public TextField txtSongName, txtArtist, txtCategory, txtLength, txtFilepath;
+    private TextField txtSongTitle, txtArtist, txtCategory, txtLength, txtFilepath;
+
+    @FXML
+    private TableView<Song> tblSongs;
 
     public void setSongModel(SongModel songModel) {
         this.songModel = songModel;
@@ -33,14 +36,12 @@ public class NewSongController {
     public void btnClickDone(ActionEvent actionEvent) {
 
         Button source = (Button) actionEvent.getSource();
-
         Stage stage = (Stage) source.getScene().getWindow();
-
         stage.close();
 
-        if (!txtSongName.getText().isEmpty() && !txtArtist.getText().isEmpty() && !txtCategory.getText().isEmpty() && !txtLength.getText().isEmpty() && !txtFilepath.getText().isEmpty()) {
+        if (!txtSongTitle.getText().isEmpty() && !txtArtist.getText().isEmpty() && !txtCategory.getText().isEmpty() && !txtLength.getText().isEmpty() && !txtFilepath.getText().isEmpty()) {
             try {
-                Song newSong = new Song(-1, txtSongName.getText(), txtArtist.getText(), txtCategory.getText(), Integer.parseInt(txtLength.getText()), txtFilepath.getText());
+                Song newSong = new Song(-1, txtSongTitle.getText(), txtArtist.getText(), txtCategory.getText(), Integer.parseInt(txtLength.getText()), txtFilepath.getText());
                 songModel.addSong(newSong);
 
             } catch (Exception e) {
@@ -65,7 +66,6 @@ public class NewSongController {
                 txtFilepath.setText(selectedFile.getAbsolutePath());
                 getDurationInSeconds(selectedFile, seconds ->{txtLength.setText(seconds + "");});
             }
-
 
         }
     }

@@ -38,9 +38,20 @@ public class SongModel {
         songsToBeViewed.add(addedSong);
     }
 
-    public void deleteSong(Song song) throws Exception {
-        songManager.deleteSong(song);
-        songsToBeViewed.remove(song);
+    public void deleteSong(Song songToBeDeleted) throws Exception {
+        songManager.deleteSong(songToBeDeleted);
+        songsToBeViewed.remove(songToBeDeleted);
+    }
+
+    public void updateSong(Song songTobeUpdated) throws Exception {
+        songManager.updateSong(songTobeUpdated);
+
+        for (int i = 0; i < songsToBeViewed.size(); i++) {
+            if (songsToBeViewed.get(i).getId() == songTobeUpdated.getId()) {
+                songsToBeViewed.set(i, songTobeUpdated);
+                break;
+            }
+        }
     }
 }
 

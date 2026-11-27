@@ -102,15 +102,35 @@ public class  MyTunesController implements Initializable {
 
 
     public void btnClickUpdateSong(ActionEvent actionEvent) {
+        Song  selectedSong = tblViewSong.getSelectionModel().getSelectedItem();
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/dk/sea/mytunes/UpdateSong.fxml"));
+            Parent root = fxmlLoader.load();
+
+            UpdateSongController controller = fxmlLoader.getController();
+            controller.setSongModel(songModel);
+            controller.setSong(selectedSong);
+
+
+            Stage stage = new Stage();
+            stage.setTitle("Update Song");
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+
+        } catch (Exception e) {
+            displayError(e);
+        }
     }
 
-//    public void bntClickAddsSongPlaylist(ActionEvent primaryStage) throws IOException {
+    public void bntClickAddsSongPlaylist(ActionEvent primaryStage) {
 //
 //        Parent newSong = FXMLLoader.load((Objects.requireNonNull(Main.class.getResource("/dk/sea/mytunes/MyTunes.fxml"))));
 //        primaryStage.setTitle("MyTunes");
 //        primaryStage.setScene(new Scene(newSong, 995, 724));
 //        primaryStage.show();
-//    }
+    }
 
     public void bntClickRemoveSongPlaylist(ActionEvent actionEvent) {
 
@@ -130,8 +150,5 @@ public class  MyTunesController implements Initializable {
     }
 
     public void btnClickPause(ActionEvent actionEvent) {
-    }
-
-    public void bntClickAddsSongPlaylist(ActionEvent actionEvent) {
     }
 }

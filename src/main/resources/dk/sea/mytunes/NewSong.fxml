@@ -25,7 +25,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="txtSongName" promptText="Song Name" />
+            <TextField fx:id="txtSongTitle" promptText="Song Name" />
             <TextField fx:id="txtArtist" promptText="Artist" GridPane.rowIndex="1" />
             <TextField fx:id="txtCategory" promptText="Category" GridPane.rowIndex="2" />
             <TextField fx:id="txtLength" promptText="Length" GridPane.rowIndex="3" />
