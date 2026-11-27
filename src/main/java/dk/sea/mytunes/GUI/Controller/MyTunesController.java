@@ -37,7 +37,7 @@ public class  MyTunesController implements Initializable {
     private TableColumn<Song, String> colCategory;
 
     @FXML
-    private TableColumn<Song, Integer> colDuration;
+    private TableColumn<Song, Integer> colLength;
 
     @FXML
     private TextField txtSongTitle, txtArtist;
@@ -62,7 +62,7 @@ public class  MyTunesController implements Initializable {
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colArtist.setCellValueFactory(new PropertyValueFactory<>("artist"));
         colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
-        colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
+        colLength.setCellValueFactory(new PropertyValueFactory<>("length"));
 
         tblViewSong.setItems(songModel.getObservableSongs());
     }
