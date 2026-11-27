@@ -18,6 +18,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,6 +43,8 @@ public class  MyTunesController implements Initializable {
     private TextField txtSongTitle, txtArtist;
     @FXML
     private SongModel songModel;
+
+    private MediaPlayer currentPlayer;
 
 
 
@@ -118,14 +121,38 @@ public class  MyTunesController implements Initializable {
     @FXML
 
     public void btnClickPlay(ActionEvent actionEvent) {
-        Media media = null;
-        try {
-            media = new Media(getClass().getResource("/audio/song1.mp3").toURI().toString());
-            MediaPlayer player = new MediaPlayer(media);
-            player.play();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
+        Song selectedSong = tblViewSong.getSelectionModel().getSelectedItem();
 
+        if (selectedSong == null) {
+            displayError(new Exception("Please select a song first."));
+            return;
+        }
+
+        // Stop any currently playing song
+        if (currentPlayer != null) {
+            currentPlayer.stop();
+            currentPlayer.dispose();
+            currentPlayer = null;
+        }
+
+        try {
+            File file = new File(selectedSong.getFilePath());
+            if (!file.exists()) {
+                displayError(new Exception("File not found: " + selectedSong.getFilePath()));
+                return;
+            }
+
+            Media media = new Media(file.toURI().toString());
+            currentPlayer = new MediaPlayer(media);
+
+            currentPlayer.setOnError(() -> {
+                displayError(currentPlayer.getError());
+            });
+
+            currentPlayer.play();
+
+        } catch (Exception e) {
+            displayError(e);
         }
     }
 
