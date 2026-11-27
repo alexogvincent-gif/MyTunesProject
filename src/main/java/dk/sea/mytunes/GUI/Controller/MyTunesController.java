@@ -143,8 +143,9 @@ public class  MyTunesController implements Initializable {
     public void btnClickPlay(ActionEvent actionEvent) {
         Song selectedSong = tblViewSong.getSelectionModel().getSelectedItem();
 
+        // Displays a message if no song is selected
         if (selectedSong == null) {
-            displayError(new Exception("Please select a song first."));
+            displayError(new Exception("Please select a song first"));
             return;
         }
 
@@ -155,13 +156,14 @@ public class  MyTunesController implements Initializable {
             currentPlayer = null;
         }
 
+        // Error message if file cannot be found
         try {
             File file = new File(selectedSong.getFilePath());
             if (!file.exists()) {
                 displayError(new Exception("File not found: " + selectedSong.getFilePath()));
                 return;
             }
-
+            // Creates media and media player with media as param
             Media media = new Media(file.toURI().toString());
             currentPlayer = new MediaPlayer(media);
 
@@ -176,6 +178,10 @@ public class  MyTunesController implements Initializable {
         }
     }
 
+    @FXML
     public void btnClickPause(ActionEvent actionEvent) {
+        if (currentPlayer != null && currentPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+            currentPlayer.pause();
+        }
     }
 }
